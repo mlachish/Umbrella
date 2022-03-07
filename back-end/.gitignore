@@ -1,1 +1,9 @@
 node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.vscode
+vite.config.js
+static
+.env
