@@ -10,7 +10,9 @@ import Weather from '../components/Weather.vue'
             <img src="" alt="">
         </div>
         <Outfit />
-        <Weather />
+        <Suspense>
+            <Weather />
+        </Suspense>
     </main>
 </template>
 
@@ -27,11 +29,11 @@ h1 {
 
 .avatar {
     position: fixed;
-    top: 2rem;
-    left: 2rem;
+    top: 1.5rem;
+    left: 1.5rem;
     background-color: black;
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
 }
 </style>

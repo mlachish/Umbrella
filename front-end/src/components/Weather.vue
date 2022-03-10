@@ -2,21 +2,24 @@
 import { getCoordinatesByLocationName } from '../services/coordinates-by-location-name'
 import { getCurrentWeather } from '../services/current-weather'
 
-const { lat, lon } = await getCoordinatesByLocationName('jerusalem', 'israel')
+const { lat, lon } = await getCoordinatesByLocationName('new york', 'united states')
 console.log(lat, lon)
-const jerusalemWeather = await getCurrentWeather(lat, lon)
-console.log(jerusalemWeather)
+const cityWeather = await getCurrentWeather(40.7127281, -74.0060152)
+console.log(cityWeather)
 </script>
 
 <template>
-    <p>weather</p>
+    <section>
+        <p v-if="lat">{{ lat }}, {{ lon }}</p>
+        <p v-if="cityWeather">{{cityWeather}}</p>
+    </section>
 </template>
 
 <style scoped>
-p {
+section {
     font-size: 24px;
     border: 1px solid black;
-    width: 50vw;
+    width: 60vw;
     height: 20vh;
     text-align: center;
 }
