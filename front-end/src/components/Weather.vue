@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { getCoordinatesByLocationName } from '../services/coordinates-by-location-name'
 import { getCurrentWeather } from '../services/current-weather'
+import { removeLastDecimal } from '../services/remove-last-decimal'
 
 const { lat, lon } = await getCoordinatesByLocationName('london', 'united kingdom')
 const currentWeather = await getCurrentWeather(lat, lon)
 console.log(currentWeather)
 
-const temp: string = currentWeather.main.temp.toString().split('.')[1].length === 2 ? currentWeather.main.temp.toString().slice(0, -1) : currentWeather.main.temp.toString()
+const temp: string = removeLastDecimal(currentWeather.main.temp)
 
 const iconCode: string = currentWeather.weather[0].icon
 function getWeatherIcon(iconCode: string) {
