@@ -3,7 +3,9 @@ import MainPage from './pages/MainPage.vue'
 </script>
 
 <template>
-    <MainPage />
+    <Suspense>
+        <MainPage />
+    </Suspense>
 </template>
 
 <style>

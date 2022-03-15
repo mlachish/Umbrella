@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { getCoordinatesByLocationName } from '../services/coordinates-by-location-name'
-import { getCurrentWeather } from '../services/current-weather'
 import { removeLastDecimal } from '../services/remove-last-decimal'
+import { useWeatherStore } from '../store/weather'
 
-const { lat, lon } = await getCoordinatesByLocationName('london', 'united kingdom')
-const currentWeather = await getCurrentWeather(lat, lon)
+const store = useWeatherStore()
+const currentWeather = store.$state
 console.log(currentWeather)
-
 const temp: string = removeLastDecimal(currentWeather.main.temp)
 
 const iconCode: string = currentWeather.weather[0].icon
@@ -61,5 +59,11 @@ img {
     grid-area: 3 / 2 / 4 / 4;
     font-size: var(--font-size);
     word-wrap: break-word;
+}
+@media (min-width: 600px) {
+    section {
+        grid-area: 3 / 1 / 4 / 2;
+        width: inherit;
+    }
 }
 </style>
