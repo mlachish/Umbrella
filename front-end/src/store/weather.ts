@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Weather } from '../interfaces/weather-interface'
+import { Weather } from '../types/weather-interface'
 
 export const useWeatherStore = defineStore('weatherStore', {
     state: (): Weather => ({
@@ -53,27 +53,5 @@ export const useWeatherStore = defineStore('weatherStore', {
         tempratures(state) {
             return state.main
         }
-        // tempratures(state): any {
-        //     Object.entries(state.main).map((entry) => {
-        //         if (entry[1] % 1 != 0) {
-        //             if (entry[1].toString().split('.')[1].length === 2) {
-        //                 entry[1].toString().slice(0, -1)
-        //             } else {
-        //                 entry[1].toString()
-        //             }
-        //             entry.reduce((a, v) => ({ ...a, [v]: v}), {})
-        //             return entry
-        //         } else {
-        //             return entry
-        //         }
-        //     })
-        // },
     },
-    //   actions: {
-    //     // any amount of arguments, return a promise or not
-    //     addTodo(text) {
-    //       // you can directly mutate the state
-    //       this.todos.push({ text, id: this.nextId++, isFinished: false })
-    // //     },
-    //   },
 })
